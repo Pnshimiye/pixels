@@ -7,11 +7,35 @@ import datetime as dt
 class Category(models.Model):
     category_name = models.CharField(max_length =30)
 
+    def save_category(self):
+      self.save()
+
+    def delete_category(self):
+      self.delete()
+
+    def update_category(self):
+      self.update()
+
+    
+
+    
+
     def __str__(self):
         return self.name
 
 class Location(models.Model):
     location_name = models.CharField(max_length =30)
+
+
+
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+
+    def update_location(self):
+        self.update
 
     def __str__(self):
         return self.name
@@ -40,14 +64,19 @@ class Image(models.Model):
     def update_image(self):
       self.update()
 
+
+    @classmethod
     def get_image_by_id(self,id):
       image = Image.objects.get(id=id)
       return image
 
+
+    @classmethod
     def search_image_category(self,this_category):
         category_image =Image.objects.filter_by(category_name=this_category)
         return category_image
 
+    @classmethod
     def searc_image_by_location(self,this_location):
         location_image= Image.objects.filter_by(location_name=this_location)
         return location_image
