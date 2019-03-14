@@ -15,18 +15,29 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
+
+
 class Image(models.Model):
     name = models.CharField(max_length =30)
     image = models.CharField(max_length =30)
     description = models.CharField(max_length =30)
     category = models.ForeignKey(Category)
     location = models.ForeignKey(Location)
-    capture_date = models.DateTimeField(auto_now_add=True)
+    capture_date = models.TimeField(auto_now_add=True) 
 
     def __str__(self):
       return self.name
 
     class Meta:
-      ordering = ['name']
+       ordering = ['name']
+
+    def save_image(self):
+      self.save()
+
+    def delete_image(self):
+      self.delete()
+
+    def update_image(self):
+      self.update()
 
 
