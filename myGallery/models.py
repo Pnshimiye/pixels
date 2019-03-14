@@ -28,10 +28,10 @@ class Location(models.Model):
 
 
 
-    def save_category(self):
+    def save_location(self):
         self.save()
 
-    def delete_category(self):
+    def delete_location(self):
         self.delete()
 
     def update_location(self):
@@ -43,7 +43,7 @@ class Location(models.Model):
 
 class Image(models.Model):
     name = models.CharField(max_length =30)
-    image = models.CharField(max_length =30)
+    image = models.ImageField(upload_to = 'home/')
     description = models.CharField(max_length =30)
     category = models.ForeignKey(Category)
     location = models.ForeignKey(Location)
