@@ -13,6 +13,13 @@ def images(request):
     images = Image.get_images()   
     return render(request, 'All-pictures/home.html', {'title':title, 'images':images})
 
+def picture(request,image_id):
+    try:
+        picture = Image.objects.get(id = image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'All-pictures/home.html', {"picture":picture})
+
 
 
 def images_today(request):
