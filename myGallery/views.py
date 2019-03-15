@@ -4,13 +4,14 @@ import datetime as dt
 
 
 def welcome(request):
-    return render(request, 'home.html')
+    return render(request, 'All-pictures/home.html')
 
 
-def news_of_day(request):
+def images_today(request):
     date = dt.date.today()
-    return render(request, 'all-news/today-news.html', {"date": date,})
-   def past_days_news(request, past_date):
+    return render(request, 'All-pictures/images-of-day.html', {"date": date,})
+
+def past_days_images(request, past_date):
 
     try:
         # Converts data from the string Url
@@ -22,6 +23,6 @@ def news_of_day(request):
         assert False
 
     if date == dt.date.today():
-        return redirect(news_of_day)
+        return redirect(images_of_day)
 
-    return render(request, 'all-news/past-news.html', {"date": date})
+    return render(request, 'All-pictures/past-uploads.html', {"date": date})
