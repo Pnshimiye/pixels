@@ -2,10 +2,17 @@ from django.shortcuts import render,redirect
 from django.http  import HttpResponse 
 import datetime as dt
 from django.conf.urls.static import static
+from.models import Image,Category,Location
 
 
-def welcome(request):
-    return render(request, 'All-pictures/home.html')
+# def welcome(request):
+#     return render(request, 'All-pictures/home.html')
+
+def images(request): 
+    title = 'Home'
+    images = Image.get_images()   
+    return render(request, 'All-pictures/home.html', {'title':title, 'images':images})
+
 
 
 def images_today(request):

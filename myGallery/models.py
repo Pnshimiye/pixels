@@ -65,6 +65,12 @@ class Image(models.Model):
       self.update()
 
 
+
+    @classmethod
+    def get_images(cls):
+        all_images = Image.objects.all()
+        return all_images
+
     @classmethod
     def get_image_by_id(self,id):
       image = Image.objects.get(id=id)
