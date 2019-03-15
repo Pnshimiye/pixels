@@ -77,7 +77,7 @@ class Image(models.Model):
         return category_image
 
     @classmethod
-    def searc_image_by_location(self,this_location):
+    def search_image_by_location(self,this_location):
         location_image= Image.objects.filter_by(location_name=this_location)
         return location_image
   
