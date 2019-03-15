@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse 
 import datetime as dt
+from django.conf.urls.static import static
 
 
 def welcome(request):

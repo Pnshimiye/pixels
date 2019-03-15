@@ -43,7 +43,7 @@ class Location(models.Model):
 
 class Image(models.Model):
     name = models.CharField(max_length =30)
-    image = models.ImageField(upload_to = 'home/')
+    image = models.ImageField(upload_to = 'image/')
     description = models.CharField(max_length =30)
     category = models.ForeignKey(Category)
     location = models.ForeignKey(Location)
