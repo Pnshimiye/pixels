@@ -5,28 +5,29 @@
 {% for pic in images%}
 
   <div class="row"> 
+     
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <h2 class="text-center"> {{ pic.name }} </h2>
-      </div>
-  
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="text-center"> {{ pic.name }} </h2>
         
-      <a href=""data-target="{{pic.image.id}}"><img src="{{pic.image.url}}" class="img-responsive" alt="Image"></a> <img src="{{pic.image.url}}" class="img-responsive" alt="Image">
+      <a href=""   data-toggle= "modal" data-target="#{{pic.id}}"><img src="{{pic.image.url}}" class="img-responsive" alt="Image"></a> 
       </div>    
 
   </div>
-  <div> 
-      <div id="{{pic.image.id}}" class="modal fade" role="dialog">
+   
+      <div id="{{pic.id}}" class="modal fade" role="dialog">
           <div class="modal-dialog">
         
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+              
+                <h2 class="modal-title">{{pic.name}}</h2>
+                <h4>{{pic.capture_date}}</h4>
+
               </div>
               <div class="modal-body">
-                <p>Some text in the modal.</p>
+                  <img src="{{pic.image.url}}" class="img-responsive" alt="Image">
+                <p>{{pic.description}</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -36,7 +37,7 @@
           </div>
         </div>
         
-  </div>
+   
   {%endfor%}
 
 {%endblock%}
