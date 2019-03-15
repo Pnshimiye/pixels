@@ -21,7 +21,7 @@ class Category(models.Model):
     
 
     def __str__(self):
-        return self.name
+        return self.category_name
 
 class Location(models.Model):
     location_name = models.CharField(max_length =30)
@@ -38,7 +38,7 @@ class Location(models.Model):
         self.update
 
     def __str__(self):
-        return self.name
+        return self.location_name
 
 
 class Image(models.Model):
