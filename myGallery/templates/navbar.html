@@ -11,6 +11,14 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="{% url 'images' %}">The pixels</a>
     </div>
+    <div class="locations">
+        <h4>Locations:</h4>
+        {% for location in locations %}
+        <a href="/location/{{location.id}}">{{location.location_name}}</a>
+        {% empty %}
+        <h4>There are no locations</h4>
+        {% endfor %}
+    </div>
   </div>
 </nav>
 </body>
