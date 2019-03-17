@@ -4,11 +4,12 @@
 
 {% for pic in images%}
 
+<div class="container">
   <div class="row"> 
      
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <h2 class="text-center"> {{ pic.name }} </h2>
-        
+          <!-- <h2 class="text-center"> {{ pic.name }} </h2>
+         -->
       <a href="" data-toggle= "modal" data-target="#{{pic.id}}"><img src="{{pic.image.url}}" class="img-responsive" alt="Image" height="500px" width="500px"></a> 
       </div>    
 
@@ -36,6 +37,7 @@
         
           </div>
         </div>
+      </div>
         
    
   {%endfor%}

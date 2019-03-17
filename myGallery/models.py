@@ -44,7 +44,7 @@ class Location(models.Model):
 class Image(models.Model):
     name = models.CharField(max_length =30)
     image = models.ImageField(upload_to = 'image/')
-    description = models.CharField(max_length =30)
+    description = models.CharField(max_length =150)
     category = models.ForeignKey(Category, blank= True)
     location = models.ForeignKey(Location)
     capture_date = models.TimeField(auto_now_add=True) 
