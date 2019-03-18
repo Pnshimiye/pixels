@@ -19,9 +19,9 @@ class LocationTestClass(TestCase):
     
     def test_updating_location(self):
         location = Location.get_location_id(self.nairobi.id)
-        location.update_location('Kitengela')
+        location.update_location('upcountry')
         location = Location.get_location_id(self.nairobi.id)
-        self.assertTrue(location.photo_location == 'Kitengela')
+        self.assertTrue(location.photo_location == 'upcountry')
     
     def tearDown(self):
         self.nairobi.delete_location()
