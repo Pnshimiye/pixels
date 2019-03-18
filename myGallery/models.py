@@ -16,6 +16,10 @@ class Category(models.Model):
     def update_category(self):
       self.update()
 
+    @classmethod
+    def get_category_id(cls,id):
+      category= Category.objects.get(id=id)
+      return category
     
 
     
@@ -36,6 +40,19 @@ class Location(models.Model):
 
     def update_location(self):
         self.update
+
+
+    @classmethod
+    def get_locations(cls):
+        all_locations = Location.objects.all()
+        return all_locations
+
+
+    @classmethod
+    def get_location_id(cls,id):
+      location= Location.objects.get(id=id)
+      return location 
+        
 
     def __str__(self):
         return self.location_name
@@ -79,14 +96,17 @@ class Image(models.Model):
 
     @classmethod
     def search_image_category(cls,search_term):
-        category_image =cls.objects.filter_by(category_name__icontains=search_term)
-        return category_image
+      category= Category.objects.get(category_name=search_term)
+      images =cls.objects.filter(category=category)
+
+      return images
 
 
     @classmethod
-    def search_image_by_location(self,this_location):
-        location_image= Image.objects.filter_by(location_name=this_location)
-        return location_image
-  
+    def search_image_location(cls,search_term):
+      location= Location.objects.get(location_name=search_term)
+      limages =cls.objects.filter(location=location)
+      
 
+      return limages
 

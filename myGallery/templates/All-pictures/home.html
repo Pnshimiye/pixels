@@ -4,20 +4,20 @@
 
 {% for pic in images%}
 
-
+ 
   <div class="row" id="pictures"> 
      
-      <div class="col-sm-6 col-md-6">
+      <div class="col-sm-6">
 
-      <a href="" data-toggle= "modal" data-target="#{{pic.id}}"><img src="{{pic.image.url}}" class="img-responsive" alt="Image" height="500px" width="500px"></a> 
+      <a href="" data-toggle= "modal" data-target="#{{pic.id}}"><img src="{{pic.image.url}}" class="img-responsive" alt="Image" height="700px" width="700px"></a> 
       </div>    
  
   </div> 
- -    
+    
       <div id="{{pic.id}}" class="modal fade" role="dialog">
           <div class="modal-dialog">
          
-            <div class="modal-content modal-lg" height="1000px" width="1000px">
+            <div class="modal-content modal-lg">
               <div class="modal-header">
               
                 <h2 class="modal-title">{{pic.name}}</h2>
@@ -38,7 +38,7 @@
           </div>
         </div>
       </div>
-        
+  
    
   {%endfor%}
 

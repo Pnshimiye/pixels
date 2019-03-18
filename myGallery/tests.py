@@ -12,7 +12,7 @@ class LocationTestClass(TestCase):
     # Set Up Method
     def setUp(self):
         self.kigali = Location(location_name='kigali')
-        self.nairobi.save_location()
+        self.kigali.save_location()
 
     def test_instance(self):
         self.assertTrue(isinstance(self.kigali,Location))
@@ -20,11 +20,11 @@ class LocationTestClass(TestCase):
     def test_updating_location(self):
         location = Location.get_location_id(self.nairobi.id)
         location.update_location('upcountry')
-        location = Location.get_location_id(self.nairobi.id)
+        location = Location.get_location_id(self.upcountry.id)
         self.assertTrue(location.photo_location == 'upcountry')
     
     def tearDown(self):
-        self.nairobi.delete_location()
+        self.kigali.delete_location()
     
 class CategoryTestClass(TestCase):
     # Set Up Method

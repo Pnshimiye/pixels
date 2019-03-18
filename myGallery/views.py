@@ -13,12 +13,7 @@ def images(request):
     images = Image.get_images()   
     return render(request, 'All-pictures/home.html', {'title':title, 'images':images})
 
-def picture(request,image_id):
-    try:
-        picture = Image.objects.get(id = image_id)
-    except DoesNotExist:
-        raise Http404()
-    return render(request,'All-pictures/home.html', {"picture":picture})
+
 
 
 
@@ -44,8 +39,8 @@ def past_days_images(request, past_date):
 
 def search_results(request):
 
-    if 'image' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("image")
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
         searched_category = Image.search_image_category(search_term)
         message = f"{search_term}"
 
@@ -54,3 +49,21 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'All-pictures/category.html',{"message":message})
+
+def location_search_results(request):
+
+    if 'location' in request.GET and request.GET["location"]:
+        search_term = request.GET.get("location")
+        searched_location = Image.search_image_location(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'All-pictures/location.html',{"message":message,"photos": searched_location})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'All-pictures/location.html',{"message":message})
+
+
+
+ 
+       
