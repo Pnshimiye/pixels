@@ -1,4 +1,16 @@
 {%extends 'All-pictures/base.html'%} 
+<!Doctype <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script>
+</head>
+<body>
+ 
 {% block content %}
 <div class="container">
 
@@ -14,10 +26,10 @@
   <div class="row">
 
    {% if images %}
-    {% for image in images %}
+   {% for image in images %}
    
       <div class="col-sm-6 col-md-3">
-        <h3>{{image.category}}</h3>
+         
         <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="500px" width="500px">
          
       </div>
@@ -28,3 +40,6 @@
   </div>
 </div>
 {% endblock %}
+ 
+</body>
+</html>
