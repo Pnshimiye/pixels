@@ -11,9 +11,11 @@
 </head>
 <body>
 <div class= "body">
+        
 
 {%block content%}
-<h1 style="background-color: aliceblue;font-family:monospace;font-weight:bolder;height:40px;border-radius:4px"> Welcome to the My Gallery</h1>
+
+<h1 style="background-color: aliceblue;font-family:monospace;font-weight:bolder;height:40px;border-radius:4px;text-align:right"> Welcome to the My Gallery</h1>
 
 {% for pic in images%}
 
@@ -22,6 +24,8 @@
      
       <div class="col-sm-12">
 
+
+        
       <a href="" data-toggle= "modal" data-target="#{{pic.id}}"><img src="{{pic.image.url}}" class="img-responsive" alt="Image" height="700px" width="700px"></a> 
       </div>    
  
@@ -41,6 +45,16 @@
                   <img src="{{pic.image.url}}" class="img-responsive" alt="Image" height="1000px">
                 <div class ="description">
                 <p>{{pic.description}}</p>
+
+
+                <ul class="list-inline">
+                    <li class="list-inline-item">  
+                        <a class="facebook-share-button" class="tooltip-test" title="Share on Facebook"
+                            href=" " target="_blank">
+                            Share
+                        </a>
+                    </li>
+                </ul>
               </div>
               </div>
               <div class="modal-footer">
@@ -54,7 +68,7 @@
   
    
   {%endfor%}
-
+ 
 {%endblock%}
 </div> 
 </body>

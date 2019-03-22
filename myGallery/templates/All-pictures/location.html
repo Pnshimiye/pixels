@@ -1,24 +1,46 @@
 {%extends 'All-pictures/base.html'%} 
+<!Doctype <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script>
+</head>
+<body style="text-align:center">
+ 
 {% block content %}
+
 <div class="container">
+    <div class="row" id="pictures"> 
+     
+        <div class="col-sm-12">
+  
 
   <div class="row">
     {% if images %}
-      <h2>Found {{images|length }} of searched term {{message}}</h2>
+      <h2 style="color:white;">Found {{images|length }} of searched term {{message}}</h2>
     {% else %}
-      <h2> Found 0 image for the search term(Location) {{message}}</h2>
+      <h2  style="color:white;" > Found 0 image for the search term {{message}}</h2>
     {% endif %}
 
   </div>
+  <div class="container">
+    <div class="row" id="pictures">
 
   <div class="row">
 
-   {% if photos %}
-    {% for image in photos %}
+   {% if images %}
+   {% for image in images %}
    
-      <div class="col-sm-6 col-md-3">
-        <h3>{{image.location}}</h3>
-        <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="500px" width="500px">
+      <div class=" col-md-3 img">
+        
+         
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="700px" width="700px">
+        <h4 id='des'>{{image.description}}</h4>
+        
          
       </div>
    
@@ -26,5 +48,11 @@
   {% endfor %}
   {% endif %}
   </div>
-</div>
+  </div>
+  </div>
+ 
 {% endblock %}
+</div>
+ 
+</body>
+</html>

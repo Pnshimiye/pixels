@@ -9,16 +9,17 @@
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <script src="main.js"></script>
 </head>
-<body>
+<body style="text-align:center">
  
 {% block content %}
 
+<div class="container">
 
   <div class="row">
     {% if images %}
-      <h2>Found {{images|length }} of searched term {{message}}</h2>
+      <h2 style="color:white;">Found {{images|length }} of searched term {{message}}</h2>
     {% else %}
-      <h2> Found 0 image for the search term {{message}}</h2>
+      <h2  style="color:white;" > Found 0 image for the search term {{message}}</h2>
     {% endif %}
 
   </div>
@@ -28,11 +29,11 @@
    {% if images %}
    {% for image in images %}
    
-      <div class=" col-md-3">
+      <div class=" col-md-3 img">
         
          
-        <img src="{{image.image.url}}" class="img-responsive" alt="Image" height="500px" width="500px">
-        <h4>{{image.description}}</h4>
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image"height="700px" width="700px">
+        <h4 id='des'>{{image.description}}</h4>
         
          
       </div>
@@ -43,6 +44,7 @@
   </div>
  
 {% endblock %}
+</div>
  
 </body>
 </html>

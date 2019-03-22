@@ -38,9 +38,9 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
 
-    def update_location(self):
-        self.update
-
+    def update_location(self,new_location):
+        self.location_name = new_location
+        self.save()
 
     @classmethod
     def get_locations(cls):
@@ -96,17 +96,24 @@ class Image(models.Model):
 
     @classmethod
     def search_image_category(cls,search_term):
-      category= Category.objects.get(category_name=search_term)
-      images =cls.objects.filter(category=category)
+      # category= Category.objects.get(category_name=search_term)
+      images =cls.objects.filter(category__category_name__icontains =search_term)
+      
+
+      return images
+    @classmethod
+    def search_image_location(cls,search_term):
+      # category= Category.objects.get(category_name=search_term)
+      images =cls.objects.filter(location__location_name__icontains =search_term)
+      
 
       return images
 
 
-    @classmethod
-    def search_image_location(cls,search_term):
-      location= Location.objects.get(location_name=search_term)
-      limages =cls.objects.filter(location=location)
-      
 
-      return limages
+    @classmethod
+    def filter_by_location(cls, filter_location):
+        images_location = Image.objects.filter(location__id=filter_location)
+        
+        return images_location  
 

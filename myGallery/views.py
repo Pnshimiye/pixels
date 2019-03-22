@@ -65,5 +65,25 @@ def location_search_results(request):
 
 
 
+# def location_search_results(request,location_id):
+#     try:
+#         location = Location.objects.get(id = location_id)
+#     except DoesNotExist:
+#         raise Http404()
+#     return render(request,"All-pictures/location.html", {"location":location})
+
+def location(request,location_id):  
+    try: 
+            # locations = Location.objects.all()
+            location = Location.objects.get(id = location_id)
+            images = Image.objects.filter(location = location.id)    
+    except:        
+            raise Http404()   
+    return render(request,'All-pictures/location.html',{'location':location,'images':images,})
+
+
+
+
+
  
        
