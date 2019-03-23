@@ -48,7 +48,7 @@ class ImageTestCase(TestCase):
         self.nairobi = Location(location_name='Kigali')
         self.nairobi.save_location()
 
-        self.image = Image(name='salads',description='Healthy and eye catching salads from Bisates lodge', location =  self.kigali, category= self.food)
+        self.image = Image(name='Sea food',description="Sea food form Sakae a Japanese restaurant", location = self.location, category= self.category)
         self.image.save_image()
     
     def tearDown(self):
